@@ -11,6 +11,11 @@ public class PostService {
     private final PostRepository postRepository;
     private final PostMapper postMapper;
 
+    @Transactional(readOnly = true)
+    public PostResource getPost(long postId) {
+        return postRepository.findById(postId).orElseThrow(PostNotFoundException::new);
+    }
+
     @Transactional
     public Long write(WritePostDto writePostDto, String writer) {
         Post post = postMapper.mapOf(writePostDto, writer);
