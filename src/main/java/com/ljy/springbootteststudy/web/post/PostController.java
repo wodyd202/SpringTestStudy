@@ -1,5 +1,6 @@
 package com.ljy.springbootteststudy.web.post;
 
+import com.ljy.springbootteststudy.services.post.application.PostResource;
 import com.ljy.springbootteststudy.services.post.application.PostService;
 import com.ljy.springbootteststudy.services.post.application.WritePostDto;
 import lombok.AccessLevel;
@@ -18,6 +19,12 @@ import java.net.URI;
 @RequestMapping("/api/v1/post")
 public class PostController {
     private final PostService postService;
+
+    @GetMapping("{postId}")
+    public ResponseEntity<PostResource> getPost(@PathVariable long postId){
+        PostResource postResource = postService.getPost(postId);
+        return ResponseEntity.ok(postResource);
+    }
 
     @PostMapping
     public ResponseEntity<Long> write(@RequestHeader("userId") String userId,
