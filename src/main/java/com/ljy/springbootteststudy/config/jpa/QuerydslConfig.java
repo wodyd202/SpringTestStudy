@@ -1,4 +1,4 @@
-package com.ljy.springbootteststudy.config;
+package com.ljy.springbootteststudy.config.jpa;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.context.annotation.Bean;
