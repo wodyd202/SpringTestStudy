@@ -5,3 +5,4 @@ SpringTestStudy
 - @WebMvcTest
 - @DataJpaTest
 - @DataQuerydslTest
+- @EmbeddedKafka
